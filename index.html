@@ -80,8 +80,6 @@ h1 { margin: 10px 0; font-size: 42px; }
 .winners-table th, .winners-table td { padding: 12px; border-bottom: 1px solid #ccc; text-align: left; }
 .winners-table th { background-color: #f4f4f4; }
 
-footer { text-align: center; padding: 20px; font-style: italic; }
-
 /* HOME Tab Background */
 #Home {
     display: block;
@@ -101,6 +99,29 @@ footer { text-align: center; padding: 20px; font-style: italic; }
 
 @keyframes fadeOut { 0% {opacity:1;} 100% {opacity:0; transform:scale(1.5);} }
 @keyframes rise { 0% {bottom:0; opacity:0;} 50% {opacity:0.8;} 100% {bottom:90%; opacity:0;} }
+
+/* Sponsor Grid */
+.sponsor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+.sponsor-item {
+  flex: 1 1 150px;
+  max-width: 200px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.85);
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+.sponsor-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 </style>
 </head>
 <body>
@@ -222,10 +243,34 @@ if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:cente
 
 <!-- SPONSORS -->
 <div id="Sponsors" class="tabcontent">
-<div class="box">
-<h2>Sponsors</h2>
-<p>Big thanks to all the sponsors making Mud Duck madness possible! Your support fuels the beers, the mud, and the tales that get taller every year.</p>
-</div>
+  <div class="box">
+    <h2>Our Legendary Sponsors</h2>
+    <p>Huge thanks to all the sponsors keeping the mud flying, the drinks flowing, and the chaos coming! Without you, the Ducks would just be soggy and sad.</p>
+    <p>Here’s to the companies and friends fueling our fall mayhem – you make this event legendary every year. Cheers, beers, and questionable golf swings!</p>
+    
+    <div class="sponsor-grid">
+      <div class="sponsor-item">
+        <img src="StABrew.jpg" alt="St. Andrews Brewery Co.">
+        <p>St. Andrews Brewery Co.</p>
+      </div>
+      <div class="sponsor-item">
+        <img src="LW.jpg" alt="Levelwear Canada">
+        <p>Levelwear Canada</p>
+      </div>
+      <div class="sponsor-item">
+        <img src="PLo.jpg" alt="Paul Logan Realty">
+        <p>Paul Logan Realty</p>
+      </div>
+      <div class="sponsor-item">
+        <img src="Callaway.jpg" alt="Callaway Canada">
+        <p>Callaway Canada</p>
+      </div>
+      <div class="sponsor-item">
+        <img src="CB.jpg" alt="Covered Bridge Potato Chips">
+        <p>Covered Bridge Potato Chips</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 </div>
@@ -243,10 +288,10 @@ document.getElementById(tabName).style.display="block";
 evt.currentTarget.className+=" active";
 }
 
-// Easter egg: Mud, bubbles, random icons and quotes
+// Easter eggs: Mud, bubbles, random icons, quotes
 function randomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min);}
-const icons = ['duck.png','beer.png','golf.png'];
-const quotes = ["Mud is mandatory!","Drink. Swing. Repeat.","May the mud be ever in your favor.","Winner gets glory, loser gets mud."];
+const icons=['duck.png','beer.png','golf.png'];
+const quotes=["Mud is mandatory!","Drink. Swing. Repeat.","May the mud be ever in your favor.","Winner gets glory, loser gets mud."];
 setInterval(()=>{
   const mud=document.createElement('div'); mud.className='mud';
   mud.style.left=randomInt(0,window.innerWidth-60)+'px';
