@@ -124,7 +124,7 @@
         }
 
         .vs-logo {
-            width: 150px;
+            width: 180px;
             height: auto;
         }
 
@@ -180,11 +180,32 @@
         #players-list li {
             margin-bottom: 6px;
         }
-
     </style>
 </head>
 
 <body>
+
+<script>
+  // Simple password protection
+  const PASSWORD = "MudDuck2026";
+  let attempts = 0;
+  let accessGranted = false;
+
+  while (!accessGranted && attempts < 3) {
+      let input = prompt("Enter the Mud Duck Championship access code:");
+      if (input === PASSWORD) {
+          accessGranted = true;
+      } else {
+          attempts++;
+          alert("Incorrect code. Try again.");
+      }
+  }
+
+  if (!accessGranted) {
+      document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Access Denied 🦆</h1>";
+      throw "Access denied";
+  }
+</script>
 
 <header>
     <img src="logo.jpg" alt="Mud Duck Championship Logo" class="logo">
@@ -346,48 +367,66 @@
 </footer>
 
 <script>
-// Tabs script
-function openTab(evt, tabName) {
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for(i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablinks");
-  for(i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active","");
-  }
-  document.getElementById(tabName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
-
-// Form submission (add to Registered Players list)
-const registrationForm = document.getElementById('registration-form');
-registrationForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(registrationForm);
-    const name = formData.get('name');
-
-    // Add name to Registered Players list
-    const ul = document.getElementById('players-list');
-    const li = document.createElement('li');
-    li.textContent = name;
-    ul.appendChild(li);
-
-    // Submit to Formspree
-    const response = await fetch(registrationForm.action, {
-        method: registrationForm.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        alert("Thank you! Your registration has been submitted.");
-        registrationForm.reset();
-    } else {
-        alert("Oops! There was a problem submitting your form.");
+    // Tabs script
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for(i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for(i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active","");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
-});
+
+    // Registered players persistence
+    const registrationForm = document.getElementById('registration-form');
+    const playersList = document.getElementById('players-list');
+    const sheetEndpoint = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL'; // replace with your Apps Script URL
+
+    async function loadRegisteredPlayers() {
+        try {
+            const res = await fetch(sheetEndpoint);
+            const names = await res.json();
+            playersList.innerHTML = '';
+            names.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                playersList.appendChild(li);
+            });
+        } catch (error) {
+            console.error("Error loading registered players:", error);
+        }
+    }
+
+    loadRegisteredPlayers();
+
+    registrationForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(registrationForm);
+        const name = formData.get('name');
+
+        try {
+            const response = await fetch(registrationForm.action, {
+                method: registrationForm.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (!response.ok) throw new Error("Formspree submission failed");
+
+            await fetch(`${sheetEndpoint}?name=${encodeURIComponent(name)}`);
+            registrationForm.reset();
+            loadRegisteredPlayers();
+            alert("Registration submitted! Welcome to the flock.");
+        } catch (error) {
+            console.error(error);
+            alert("Oops! Something went wrong. Try again.");
+        }
+    });
 </script>
 
 </body>
