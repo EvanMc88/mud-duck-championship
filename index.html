@@ -257,18 +257,18 @@
         </div>
 
         <div class="box">
-            <h2>📝 Player Registration</h2>
-            <p>All ducks must complete registration including shirt size.</p>
+            <h2>📝 Player Registration (Coming Soon)</h2>
+            <p>Registration will open once the full page is ready. Stay tuned, ducks!</p>
 
             <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
                 <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name" placeholder="Coming soon" disabled>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" placeholder="Coming soon" disabled>
 
                 <label for="shirt">Shirt Size:</label>
-                <select id="shirt" name="shirt" required>
+                <select id="shirt" name="shirt" disabled>
                     <option value="">Select size</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -277,19 +277,8 @@
                     <option value="XXL">XXL</option>
                 </select>
 
-                <button type="submit">Register</button>
+                <button type="submit" disabled>Register (Coming Soon)</button>
             </form>
-        </div>
-
-        <div class="box">
-            <h2>📊 Scoring & Results</h2>
-            <p>Match results and standings will be updated during the weekend.</p>
-            <p>(Leaderboard coming soon.)</p>
-        </div>
-
-        <div class="box">
-            <h2>📸 Photo Uploads</h2>
-            <p>A shared upload link will be added so ducks can contribute photos.</p>
         </div>
     </div>
 
@@ -334,7 +323,6 @@
             <ul id="players-list" style="list-style-type: disc; padding-left: 20px;">
                 <!-- Add any existing players here manually -->
                 <li>Evan McFarlane</li>
-                <li>Kyle Smith</li>
             </ul>
         </div>
     </div>
@@ -392,59 +380,6 @@
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     }
-
-    // Registered players persistence
-    const registrationForm = document.getElementById('registration-form');
-    const playersList = document.getElementById('players-list');
-    const sheetEndpoint = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL'; // replace with your Apps Script URL
-
-    async function loadRegisteredPlayers() {
-        try {
-            const res = await fetch(sheetEndpoint);
-            const names = await res.json();
-
-            // Add new names only if not already in the list
-            names.forEach(name => {
-                if (![...playersList.children].some(li => li.textContent === name)) {
-                    const li = document.createElement('li');
-                    li.textContent = name;
-                    playersList.appendChild(li);
-                }
-            });
-
-        } catch (error) {
-            console.error("Error loading registered players:", error);
-        }
-    }
-
-    loadRegisteredPlayers();
-
-    registrationForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(registrationForm);
-        const name = formData.get('name');
-
-        try {
-            // Submit to Formspree
-            const response = await fetch(registrationForm.action, {
-                method: registrationForm.method,
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            });
-
-            if (!response.ok) throw new Error("Formspree submission failed");
-
-            // Add name to Google Sheet
-            await fetch(`${sheetEndpoint}?name=${encodeURIComponent(name)}`);
-
-            registrationForm.reset();
-            loadRegisteredPlayers(); // refresh list
-            alert("Registration submitted! Welcome to the flock.");
-        } catch (error) {
-            console.error(error);
-            alert("Oops! Something went wrong. Try again.");
-        }
-    });
 </script>
 
 </body>
