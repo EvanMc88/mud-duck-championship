@@ -180,6 +180,25 @@
         #players-list li {
             margin-bottom: 6px;
         }
+
+        /* Sponsors Grid */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sponsor-logo img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-logo img:hover {
+            transform: scale(1.08);
+        }
     </style>
 </head>
 
@@ -323,6 +342,7 @@
             <ul id="players-list" style="list-style-type: disc; padding-left: 20px;">
                 <!-- Add any existing players here manually -->
                 <li>Evan McFarlane</li>
+                <li>Kyle Smith</li>
             </ul>
         </div>
     </div>
@@ -356,6 +376,16 @@
                 From providing trophies for the victorious and the “Muddiest Duck,” to keeping our flasks full and our stories wilder, our sponsors are the unsung heroes of chaos.  
                 Thanks for believing in ducks, drinks, and the art of friendly competition!
             </p>
+
+            <!-- Sponsor Logos Grid -->
+            <div class="sponsor-grid">
+                <!-- Example logos (replace with real sponsors) -->
+                <div class="sponsor-logo"><img src="sponsor1.png" alt="Sponsor 1"></div>
+                <div class="sponsor-logo"><img src="sponsor2.png" alt="Sponsor 2"></div>
+                <div class="sponsor-logo"><img src="sponsor3.png" alt="Sponsor 3"></div>
+                <div class="sponsor-logo"><img src="sponsor4.png" alt="Sponsor 4"></div>
+            </div>
+
         </div>
     </div>
 
