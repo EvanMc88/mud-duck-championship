@@ -1,56 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>The Mud Duck Championship</title>
+
     <style>
         body {
-            font-family: Arial;
-            background: #f4f4f4;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
             text-align: center;
-            margin: 40px;
         }
-        h1 { color: #1a1a1a; }
+
+        header {
+            background-color: #1c2a39;
+            color: white;
+            padding: 30px 10px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 42px;
+        }
+
+        h2 {
+            color: #1c2a39;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 900px;
+            margin: 30px auto;
+        }
+
         .box {
             background: white;
-            padding: 20px;
-            margin: 20px auto;
-            width: 70%;
-            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background-color: #2e7d32;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        a.button:hover {
+            background-color: #256428;
+        }
+
+        footer {
+            margin: 40px 0;
+            color: #777;
+            font-size: 14px;
         }
     </style>
 </head>
 
 <body>
 
-<h1>🦆 The Mud Duck Championship</h1>
-<p>28 Friends • 36 Holes • Questionable Decisions</p>
+<header>
+    <h1>🦆 The Mud Duck Championship</h1>
+    <div class="tagline">28 Friends • 36 Holes • Ryder Cup Chaos</div>
+</header>
 
-<div class="box">
-<h2>Team Hossel-Rocket vs Team Sna-Fu</h2>
-<p>An annual Ryder-Cup style showdown fueled by competition,
-friendship, and aggressive misreads of putts.</p>
+<div class="container">
+
+    <div class="box">
+        <h2>The Event</h2>
+        <p>
+            The Mud Duck Championship is an annual team showdown featuring
+            <strong>Team Hossel-Rocket</strong> versus <strong>Team Sna-Fu</strong>.
+        </p>
+        <p>
+            Over 36 holes, 28 competitors battle through Fourball, Alternate Shot,
+            and Singles matches in a weekend built on competition, questionable rulings,
+            and long-standing friendships.
+        </p>
+    </div>
+
+    <div class="box">
+        <h2>📅 Tournament Information</h2>
+        <p><strong>Format:</strong> Ryder Cup Style</p>
+        <p><strong>Holes:</strong> 36</p>
+        <p><strong>Players:</strong> 28</p>
+        <p><strong>Location & Dates:</strong> (To Be Announced)</p>
+    </div>
+
+    <div class="box">
+        <h2>📝 Player Registration</h2>
+        <p>All competitors must complete registration including shirt size.</p>
+
+        <a class="button"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSd0lPobGVMwIVomnntmy5kRR5OstXkB6cF6cnDcrJ_uOYhOrA/viewform?usp=header"
+           target="_blank">
+           Register for the Championship
+        </a>
+    </div>
+
+    <div class="box">
+        <h2>📊 Scoring & Results</h2>
+        <p>
+            Match results, standings, and historical records will be posted here
+            throughout the weekend.
+        </p>
+        <p>(Scoreboard coming soon.)</p>
+    </div>
+
+    <div class="box">
+        <h2>📸 Photo Uploads</h2>
+        <p>
+            Players will be able to upload photos from the weekend.
+        </p>
+        <p><em>Photo link will be added once the shared folder is created.</em></p>
+    </div>
+
 </div>
 
-<div class="box">
-<h2>📅 Event Info</h2>
-<p>Dates: TBD<br>
-Location: TBD</p>
-</div>
-
-<div class="box">
-<h2>📝 Register</h2>
-<p><a href="PASTE_YOUR_GOOGLE_FORM_LINK_HERE">Click Here to Register</a></p>
-</div>
-
-<div class="box">
-<h2>📊 Scores & Results</h2>
-<p>Updated after play each day.</p>
-</div>
-
-<div class="box">
-<h2>📸 Photo Uploads</h2>
-<p><a href="PASTE_GOOGLE_DRIVE_LINK">Upload Photos Here</a></p>
-</div>
+<footer>
+    Established for competition. Remembered for everything else.
+</footer>
 
 </body>
 </html>
