@@ -338,7 +338,9 @@
             <h2>📝 Registered Players</h2>
             <p>All ducks who have signed up for the Mud Duck Championship will appear here:</p>
             <ul id="players-list" style="list-style-type: disc; padding-left: 20px;">
-                <!-- Names will be added here -->
+                <!-- Add any existing players here manually -->
+                <li>Evan McFarlane</li>
+                <li>Kyle Smith</li>
             </ul>
         </div>
     </div>
@@ -391,12 +393,16 @@
         try {
             const res = await fetch(sheetEndpoint);
             const names = await res.json();
-            playersList.innerHTML = '';
+
+            // Add new names only if not already in the list
             names.forEach(name => {
-                const li = document.createElement('li');
-                li.textContent = name;
-                playersList.appendChild(li);
+                if (![...playersList.children].some(li => li.textContent === name)) {
+                    const li = document.createElement('li');
+                    li.textContent = name;
+                    playersList.appendChild(li);
+                }
             });
+
         } catch (error) {
             console.error("Error loading registered players:", error);
         }
@@ -410,6 +416,7 @@
         const name = formData.get('name');
 
         try {
+            // Submit to Formspree
             const response = await fetch(registrationForm.action, {
                 method: registrationForm.method,
                 body: formData,
@@ -418,9 +425,11 @@
 
             if (!response.ok) throw new Error("Formspree submission failed");
 
+            // Add name to Google Sheet
             await fetch(`${sheetEndpoint}?name=${encodeURIComponent(name)}`);
+
             registrationForm.reset();
-            loadRegisteredPlayers();
+            loadRegisteredPlayers(); // refresh list
             alert("Registration submitted! Welcome to the flock.");
         } catch (error) {
             console.error(error);
