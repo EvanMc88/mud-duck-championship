@@ -43,15 +43,23 @@ h1 { margin: 10px 0; font-size: 42px; }
 .tab button:hover { background-color: #2e6230; }
 .tab button.active { background-color: #2b5d34; }
 
-.tabcontent { display: none; padding: 30px 20px; }
-.container { width: 85%; max-width: 1100px; margin: 40px auto; }
+.tabcontent {
+    display: none;
+    padding: 50px 20px;
+    background-image: url('splatter.jpg'), url('beer.jpg');
+    background-size: cover, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+}
+.container { width: 85%; max-width: 1100px; margin: 0 auto; }
 .box {
-    background: white;
+    background-color: rgba(255,255,255,0.85);
     padding: 35px;
     margin-bottom: 30px;
     border-radius: 12px;
     box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
     border: 2px solid #d1e0c0;
+    color: #333;
 }
 .photo-button {
     display: inline-block;
@@ -65,6 +73,18 @@ h1 { margin: 10px 0; font-size: 42px; }
     transition: 0.3s;
 }
 .photo-button:hover { background-color: #2e6230; }
+.register-button {
+    display: inline-block;
+    padding: 14px 22px;
+    margin: 15px 0;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: not-allowed;
+}
+.register-button:hover { background-color: #e55b00; }
 
 /* Teams */
 .teams-box { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; border-radius: 12px; overflow: hidden; }
@@ -83,13 +103,12 @@ h1 { margin: 10px 0; font-size: 42px; }
 /* HOME Tab Background */
 #Home {
     display: block;
-    padding: 50px 20px;
     background-image: url('560210562_10172647912910321_4209714797870668673_n.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-#Home .box { background-color: rgba(255,255,255,0.85); padding:35px; border-radius:12px; box-shadow:0px 6px 15px rgba(0,0,0,0.12); border:2px solid #d1e0c0; color:#333; }
+#Home .box { background-color: rgba(255,255,255,0.85); padding:35px; }
 
 /* Mud splatter, bubbles, random icons */
 .mud { position:absolute; width:60px; height:60px; background:url('mud-splat.png') no-repeat center/contain; opacity:0.7; pointer-events:none; animation:fadeOut 4s forwards; }
@@ -156,6 +175,7 @@ if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:cente
 <div class="box">
 <h2>The Event</h2>
 <p>The Mud Duck Championship is a legendary fall weekend where 28 Ducks battle over 36 holes. Mud, drinks, and chaos are mandatory. Stories get taller every year; glory is optional.</p>
+<button class="register-button" title="Registration not open yet" disabled>Register for the 2026 Mud Duck Now</button>
 </div>
 </div>
 
@@ -173,6 +193,7 @@ if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:cente
 <div id="RegisteredPlayers" class="tabcontent">
 <div class="box">
 <h2>Registered Players</h2>
+<button class="register-button" title="Registration not open yet" disabled>Register for the 2026 Mud Duck Now</button>
 <p>List of confirmed Ducks will go here.</p>
 </div>
 </div>
@@ -237,7 +258,7 @@ if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:cente
 <div id="Photos" class="tabcontent">
 <div class="box">
 <h2>📸 Mud Duck Photo Vault</h2>
-<p>This is the official Mud Duck Championship archive. Share photos of the course, chaos, and glory, and remember to respect the privacy of the Ducks.</p>
+<p>This is the official Mud Duck Championship archive. Share photos of the course, chaos, and glory, and remember to respect the privacy of the Ducks. Keep it within the group, folks – the muddy golf degeneracy stays here! 🦆🍺</p>
 <a href="https://photos.app.goo.gl/be6N5X4Zs6xGymZ56" target="_blank" class="photo-button">👀 View All Photos</a>
 <a href="https://photos.google.com/share/AF1QipO3K-zsny_5Wg6Z6NCJzUk0tejmTliFV6zRRKF5TKNsMk4VTXlsGJ6Hh07n5DNs7Q?key=Nm5EX1RtbTBhS1c4THFFdVNZWmVwd3owcHdrMHJ3" target="_blank" class="photo-button">📤 Upload Photos</a>
 </div>
@@ -245,34 +266,34 @@ if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:cente
 
 <!-- SPONSORS -->
 <div id="Sponsors" class="tabcontent">
-  <div class="box">
-    <h2>Our Legendary Sponsors</h2>
-    <p>Huge thanks to all the sponsors keeping the mud flying, the drinks flowing, and the chaos coming! Without you, the Ducks would just be soggy and sad.</p>
-    <p>Here’s to the companies and friends fueling our fall mayhem – you make this event legendary every year. Cheers, beers, and questionable golf swings!</p>
-    
-    <div class="sponsor-grid">
-      <div class="sponsor-item">
-        <img src="StABrew.jpg" alt="St. Andrews Brewery Co.">
-        <p>St. Andrews Brewery Co.</p>
-      </div>
-      <div class="sponsor-item">
-        <img src="LW.jpg" alt="Levelwear Canada">
-        <p>Levelwear Canada</p>
-      </div>
-      <div class="sponsor-item">
-        <img src="PLo.jpg" alt="Paul Logan Realty">
-        <p>Paul Logan Realty</p>
-      </div>
-      <div class="sponsor-item">
-        <img src="Callaway.jpg" alt="Callaway Canada">
-        <p>Callaway Canada</p>
-      </div>
-      <div class="sponsor-item">
-        <img src="CB.jpg" alt="Covered Bridge Potato Chips">
-        <p>Covered Bridge Potato Chips</p>
-      </div>
-    </div>
+<div class="box">
+<h2>Our Legendary Sponsors</h2>
+<p>Huge thanks to all the sponsors keeping the mud flying, the drinks flowing, and the chaos coming! Without you, the Ducks would just be soggy and sad.</p>
+<p>Here’s to the companies and friends fueling our fall mayhem – you make this event legendary every year. Cheers, beers, and questionable golf swings!</p>
+
+<div class="sponsor-grid">
+  <div class="sponsor-item">
+    <img src="StABrew.jpg" alt="St. Andrews Brewery Co.">
+    <p>St. Andrews Brewery Co.</p>
   </div>
+  <div class="sponsor-item">
+    <img src="LW.jpg" alt="Levelwear Canada">
+    <p>Levelwear Canada</p>
+  </div>
+  <div class="sponsor-item">
+    <img src="PLo.jpg" alt="Paul Logan Realty">
+    <p>Paul Logan Realty</p>
+  </div>
+  <div class="sponsor-item">
+    <img src="Callaway.jpg" alt="Callaway Canada">
+    <p>Callaway Canada</p>
+  </div>
+  <div class="sponsor-item">
+    <img src="CB.jpg" alt="Covered Bridge Potato Chips">
+    <p>Covered Bridge Potato Chips</p>
+  </div>
+</div>
+</div>
 </div>
 
 </div>
