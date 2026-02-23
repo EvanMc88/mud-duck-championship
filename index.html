@@ -96,7 +96,7 @@ h1 {
     background-color: #2e6230;
 }
 
-/* Teams Section */
+/* Teams */
 .teams-box {
     display: flex;
     justify-content: center;
@@ -132,7 +132,7 @@ h1 {
     width: 140px;
 }
 
-/* Winners Table */
+/* Winners */
 .winners-table {
     width: 100%;
     border-collapse: collapse;
@@ -177,9 +177,13 @@ if (input !== PASSWORD) {
 
 <div class="tab">
 <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
+<button class="tablinks" onclick="openTab(event, 'About')">About</button>
+<button class="tablinks" onclick="openTab(event, 'RegisteredPlayers')">Registered Players</button>
 <button class="tablinks" onclick="openTab(event, 'Teams')">Teams</button>
 <button class="tablinks" onclick="openTab(event, 'PastWinners')">Past Winners</button>
+<button class="tablinks" onclick="openTab(event, 'Scoring')">Scoring</button>
 <button class="tablinks" onclick="openTab(event, 'Photos')">Photos</button>
+<button class="tablinks" onclick="openTab(event, 'Sponsors')">Sponsors</button>
 </div>
 
 <div class="container">
@@ -196,24 +200,42 @@ Prestige optional. Traditions mandatory.
 </div>
 </div>
 
+<!-- ABOUT -->
+<div id="About" class="tabcontent">
+<div class="box">
+<h2>About The Championship</h2>
+<p>
+Established in 2020, The Mud Duck Championship brings together competitors for team glory,
+individual recognition, and questionable decision-making.
+</p>
+</div>
+</div>
+
+<!-- REGISTERED PLAYERS -->
+<div id="RegisteredPlayers" class="tabcontent">
+<div class="box">
+<h2>Registered Players</h2>
+<p>List of confirmed Ducks will go here.</p>
+</div>
+</div>
+
 <!-- TEAMS -->
 <div id="Teams" class="tabcontent">
 <div class="box">
-
 <h2>Hossel Rockets vs Sna-Fus</h2>
 
 <div class="teams-box">
 <div class="team-half hossel">
-<img src="hossel.jpg" alt="Hossel Rockets" class="team-logo">
+<img src="hossel.jpg" class="team-logo">
 <h3>Hossel Rockets</h3>
 </div>
 
 <div class="vs-container">
-<img src="vs.jpg" alt="VS" class="vs-logo">
+<img src="vs.jpg" class="vs-logo">
 </div>
 
 <div class="team-half snafu">
-<img src="snafu.jpg" alt="Sna-Fus" class="team-logo">
+<img src="snafu.jpg" class="team-logo">
 <h3>Sna-Fus</h3>
 </div>
 </div>
@@ -226,7 +248,6 @@ Prestige optional. Traditions mandatory.
 
 <div class="box">
 <h2>🏆 Mud Duck Team Championship</h2>
-
 <table class="winners-table">
 <tr><th>Year</th><th>Champion</th></tr>
 <tr><td>2025</td><td>🏆 Sna-Fus</td></tr>
@@ -236,12 +257,10 @@ Prestige optional. Traditions mandatory.
 <tr><td>2021</td><td>🏆 Hossel-Rockets</td></tr>
 <tr><td>2020</td><td>Draw</td></tr>
 </table>
-
 </div>
 
 <div class="box">
 <h2>🍺🦆 Muddiest Duck</h2>
-
 <table class="winners-table">
 <tr><th>Year</th><th>Winner</th></tr>
 <tr><td>2025</td><td>🍺🦆 Brandon Pierce</td></tr>
@@ -251,7 +270,15 @@ Prestige optional. Traditions mandatory.
 <tr><td>2021</td><td>🍺🦆 Tom Richards</td></tr>
 <tr><td>2020</td><td>🍺🦆 Josh Fleck</td></tr>
 </table>
+</div>
 
+</div>
+
+<!-- SCORING -->
+<div id="Scoring" class="tabcontent">
+<div class="box">
+<h2>Scoring Format</h2>
+<p>Details about scoring format will go here.</p>
 </div>
 </div>
 
@@ -278,6 +305,14 @@ We’re not hiding political secrets — just muddy golf degeneracy.
 Keep the album within the Mud Duck family.
 </p>
 
+</div>
+</div>
+
+<!-- SPONSORS -->
+<div id="Sponsors" class="tabcontent">
+<div class="box">
+<h2>Sponsors</h2>
+<p>Sponsor logos and acknowledgements go here.</p>
 </div>
 </div>
 
