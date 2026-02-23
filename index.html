@@ -10,36 +10,61 @@
             background-color: #e2f0d9;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
 
         header {
             background-color: #2b5d34;
             color: white;
-            padding: 50px 10px;
+            padding: 30px 10px;
+            text-align: center;
         }
 
         .logo {
-            width: 320px;
+            width: 220px;
             max-width: 90%;
             height: auto;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
         }
 
         h1 {
-            margin: 15px 0;
-            font-size: 48px;
-        }
-
-        h2 {
-            color: #1c2a39;
-            margin-bottom: 20px;
+            margin: 10px 0;
+            font-size: 42px;
         }
 
         .tagline {
             font-style: italic;
-            margin-top: 10px;
-            font-size: 20px;
+            font-size: 18px;
+        }
+
+        /* Tabs */
+        .tab {
+            overflow: hidden;
+            background-color: #3e8e41;
+        }
+
+        .tab button {
+            background-color: inherit;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 20px;
+            float: left;
+            font-size: 17px;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .tab button:hover {
+            background-color: #2e6230;
+        }
+
+        .tab button.active {
+            background-color: #2b5d34;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 30px 20px;
         }
 
         .container {
@@ -55,22 +80,6 @@
             border-radius: 12px;
             box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
             border: 2px solid #d1e0c0;
-        }
-
-        a.button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 16px 28px;
-            background-color: #3e8e41;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        a.button:hover {
-            background-color: #2e6230;
         }
 
         /* Teams section */
@@ -94,15 +103,15 @@
         }
 
         .team-half.hossel {
-            background-color: #d35400; /* burnt orange */
+            background-color: #d35400;
         }
 
         .team-half.snafu {
-            background-color: #4682b4; /* steel blue */
+            background-color: #4682b4;
         }
 
         .team-logo {
-            width: 250px; /* large team logos */
+            width: 250px;
             height: auto;
             margin-bottom: 10px;
         }
@@ -115,7 +124,7 @@
         }
 
         .vs-logo {
-            width: 150px; /* large VS logo */
+            width: 150px;
             height: auto;
         }
 
@@ -152,6 +161,12 @@
             background-color: #2e6230;
         }
 
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-style: italic;
+        }
+
         @media(max-width: 800px){
             .teams-box {
                 flex-direction: column;
@@ -172,77 +187,93 @@
     <div class="tagline">28 Ducks • 36 Holes • Chaos & Drinks</div>
 </header>
 
+<!-- Tabs -->
+<div class="tab">
+  <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
+  <button class="tablinks" onclick="openTab(event, 'Teams')">Teams</button>
+  <button class="tablinks" onclick="openTab(event, 'Registration')">Registration</button>
+  <button class="tablinks" onclick="openTab(event, 'Scoring')">Scoring</button>
+  <button class="tablinks" onclick="openTab(event, 'Photos')">Photos</button>
+</div>
+
 <div class="container">
 
-    <!-- Updated Event Summary -->
-    <div class="box">
-        <h2>The Event</h2>
-        <p>
-            The Mud Duck Championship is a legendary weekend where <strong>28 ducks</strong> waddle their way across 36 holes in a semi-chaotic Ryder Cup–style showdown.  
-            Expect <strong>drinks in hand, wild shots, and questionable golf strategies</strong> — because nobody remembers par when you’re a duck.
-        </p>
-        <p>
-            Teams <strong>Hossel-Rocket</strong> and <strong>Sna-Fu</strong> face off in a battle of bragging rights, laughter, and muddy shoes.  
-            Come for the competition, stay for the camaraderie — and maybe a few quacks along the way.
-        </p>
-    </div>
-
-    <!-- Teams Section -->
-    <div class="teams-box">
-        <div class="team-half hossel">
-            <img src="hossellogo-new.png" alt="Team Hossel-Rocket Logo" class="team-logo">
-            <p><strong>Team Hossel-Rocket</strong></p>
-        </div>
-
-        <div class="vs-container">
-            <img src="vs-new.png" alt="VS Logo" class="vs-logo">
-        </div>
-
-        <div class="team-half snafu">
-            <img src="snafulogo-new.png" alt="Team Sna-Fu Logo" class="team-logo">
-            <p><strong>Team Sna-Fu</strong></p>
+    <!-- About Tab -->
+    <div id="About" class="tabcontent" style="display:block;">
+        <div class="box">
+            <h2>About The Event</h2>
+            <p>
+                What started years ago as a humble gathering of a single 4-some has evolved into a full-blown weekend of golf, drinks, and duck-related shenanigans.  
+                Over the last six years, the Mud Duck Championship has become the fall highlight for friends who love competition, camaraderie, and the occasional muddy shoe.
+            </p>
+            <p>
+                Each year, the victorious team takes home the coveted <strong>Mud Duck Trophy</strong>, while the spirit of chaos is celebrated by awarding the infamous <strong>Muddiest Duck Trophy</strong> to the player who embodies everything this weekend stands for: poor shots, great stories, and an unparalleled ability to embrace the mud, the laughter, and maybe a drink or two.
+            </p>
         </div>
     </div>
 
-    <!-- Registration Section -->
-    <div class="box">
-        <h2>📝 Player Registration</h2>
-        <p>All ducks must complete registration including shirt size.</p>
+    <!-- Teams Tab -->
+    <div id="Teams" class="tabcontent">
+        <div class="teams-box">
+            <div class="team-half hossel">
+                <img src="hossellogo-new.png" alt="Team Hossel-Rocket Logo" class="team-logo">
+                <p><strong>Team Hossel-Rocket</strong></p>
+            </div>
 
-        <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
-            <label for="name">Full Name:</label>
-            <input type="text" id="name" name="name" required>
+            <div class="vs-container">
+                <img src="vs-new.png" alt="VS Logo" class="vs-logo">
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="shirt">Shirt Size:</label>
-            <select id="shirt" name="shirt" required>
-                <option value="">Select size</option>
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-            </select>
-
-            <button type="submit">Register</button>
-        </form>
+            <div class="team-half snafu">
+                <img src="snafulogo-new.png" alt="Team Sna-Fu Logo" class="team-logo">
+                <p><strong>Team Sna-Fu</strong></p>
+            </div>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>📊 Scoring & Results</h2>
-        <p>
-            Match results and standings will be updated during the weekend.
-        </p>
-        <p>(Leaderboard coming soon.)</p>
+    <!-- Registration Tab -->
+    <div id="Registration" class="tabcontent">
+        <div class="box">
+            <h2>📝 Player Registration</h2>
+            <p>All ducks must complete registration including shirt size.</p>
+
+            <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="shirt">Shirt Size:</label>
+                <select id="shirt" name="shirt" required>
+                    <option value="">Select size</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
     </div>
 
-    <div class="box">
-        <h2>📸 Photo Uploads</h2>
-        <p>
-            A shared upload link will be added so ducks can contribute photos.
-        </p>
+    <!-- Scoring Tab -->
+    <div id="Scoring" class="tabcontent">
+        <div class="box">
+            <h2>📊 Scoring & Results</h2>
+            <p>Match results and standings will be updated during the weekend.</p>
+            <p>(Leaderboard coming soon.)</p>
+        </div>
+    </div>
+
+    <!-- Photos Tab -->
+    <div id="Photos" class="tabcontent">
+        <div class="box">
+            <h2>📸 Photo Uploads</h2>
+            <p>A shared upload link will be added so ducks can contribute photos.</p>
+        </div>
     </div>
 
 </div>
@@ -251,8 +282,26 @@
     Prestige Optional • Traditions Mandatory
 </footer>
 
-<!-- On-Page Form Confirmation -->
+<!-- Tabs Script -->
 <script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for(i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  tablinks = document.getElementsByClassName("tablinks");
+  for(i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active","");
+  }
+
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// On-page Form Confirmation
 const form = document.getElementById('registration-form');
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
