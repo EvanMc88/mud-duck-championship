@@ -1,16 +1,215 @@
-<!-- Teams Section with split background and VS logo -->
-<div class="teams-box">
-    <div class="team-half hossel">
-        <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
-        <p><strong>Team Hossel-Rocket</strong></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Mud Duck Championship</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #e2f0d9; /* light green golf course vibe */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #2b5d34; /* dark green header */
+            color: white;
+            padding: 50px 10px;
+        }
+
+        /* Mud Duck logo */
+        .logo {
+            width: 320px;
+            max-width: 90%;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 15px 0;
+            font-size: 48px;
+        }
+
+        h2 {
+            color: #1c2a39;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 20px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+
+        .box {
+            background: white;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
+            border: 2px solid #d1e0c0;
+        }
+
+        a.button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 16px 28px;
+            background-color: #3e8e41;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a.button:hover {
+            background-color: #2e6230;
+        }
+
+        /* Teams section with split background */
+        .teams-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .team-half {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 10px;
+        }
+
+        .team-half.hossel {
+            background-color: #d35400; /* burnt orange */
+        }
+
+        .team-half.snafu {
+            background-color: #4682b4; /* steel blue */
+        }
+
+        .team-logo {
+            width: 200px; /* big logos */
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .vs-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .vs-logo {
+            width: 80px;
+            height: auto;
+        }
+
+        @media(max-width: 800px){
+            .teams-box {
+                flex-direction: column;
+            }
+            .vs-container {
+                margin: 20px 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.jpg" alt="Mud Duck Championship Logo" class="logo">
+    <h1>The Mud Duck Championship</h1>
+    <div class="tagline">28 Friends • 36 Holes • Ryder Cup Chaos</div>
+</header>
+
+<div class="container">
+
+    <div class="box">
+        <h2>The Event</h2>
+        <p>
+            The Mud Duck Championship is an annual team showdown featuring
+            <strong>Team Hossel-Rocket</strong> versus <strong>Team Sna-Fu</strong>.
+        </p>
+        <p>
+            A 36-hole Ryder Cup–style battle built on competition, camaraderie,
+            and highly questionable on-course decisions.
+        </p>
     </div>
 
-    <div class="vs-container">
-        <img src="vs.jpg" alt="VS Logo" class="vs-logo">
+    <!-- Teams Section with split background and VS logo -->
+    <div class="teams-box">
+        <div class="team-half hossel">
+            <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
+            <p><strong>Team Hossel-Rocket</strong></p>
+        </div>
+
+        <div class="vs-container">
+            <img src="vs.jpg" alt="VS Logo" class="vs-logo">
+        </div>
+
+        <div class="team-half snafu">
+            <img src="snafulogo.jpg" alt="Team Sna-Fu Logo" class="team-logo">
+            <p><strong>Team Sna-Fu</strong></p>
+        </div>
     </div>
 
-    <div class="team-half snafu">
-        <img src="snafulogo.jpg" alt="Team Sna-Fu Logo" class="team-logo">
-        <p><strong>Team Sna-Fu</strong></p>
+    <div class="box">
+        <h2>📅 Tournament Information</h2>
+        <p><strong>Format:</strong> Team Match Play</p>
+        <p><strong>Holes:</strong> 36</p>
+        <p><strong>Players:</strong> 28</p>
+        <p><strong>Location & Dates:</strong> TBD</p>
     </div>
+
+    <div class="box">
+        <h2>📝 Player Registration</h2>
+        <p>All competitors must complete registration including shirt size.</p>
+
+        <a class="button"
+           href="https://docs.google.com/forms/d/e/1FAIpQLSd0lPobGVMwIVomnntmy5kRR5OstXkB6cF6cnDcrJ_uOYhOrA/viewform?usp=header"
+           target="_blank">
+           Register for the Championship
+        </a>
+    </div>
+
+    <div class="box">
+        <h2>📊 Scoring & Results</h2>
+        <p>
+            Match results and standings will be updated during the weekend.
+        </p>
+        <p>(Leaderboard coming soon.)</p>
+    </div>
+
+    <div class="box">
+        <h2>📸 Photo Uploads</h2>
+        <p>
+            A shared upload link will be added so players can contribute photos.
+        </p>
+    </div>
+
 </div>
+
+<footer>
+    Prestige Optional • Traditions Mandatory
+</footer>
+
+</body>
+</html>
