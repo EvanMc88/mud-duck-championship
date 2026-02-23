@@ -7,22 +7,24 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #e2f0d9; /* golf course vibe */
+            background-color: #e2f0d9; /* light green golf course vibe */
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
         header {
-            background-color: #2b5d34; /* darker green */
+            background-color: #2b5d34; /* dark green header */
             color: white;
             padding: 50px 10px;
         }
 
+        /* Mud Duck logo */
         .logo {
-            width: 320px; /* much bigger Mud Duck logo */
-            max-width: 90%;
-            margin-bottom: 25px;
+            width: 100%;
+            max-width: 400px;   /* larger size for desktop */
+            height: auto;
+            margin-bottom: 30px;
         }
 
         h1 {
@@ -72,10 +74,12 @@
             background-color: #2e6230;
         }
 
+        /* Team logos */
         .team-logo {
-            width: 250px; /* much bigger team logos */
-            max-width: 45%;
-            margin-bottom: 15px;
+            width: 100%;
+            max-width: 300px; /* much bigger */
+            height: auto;
+            margin-bottom: 20px;
         }
 
         footer {
@@ -84,7 +88,15 @@
             font-size: 14px;
         }
 
-        /* Responsive layout for team logos */
+        /* Flex container for team logos */
+        .teams-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
         @media(max-width: 800px){
             .team-logo {
                 max-width: 70%;
@@ -94,6 +106,7 @@
                 flex-direction: column;
             }
         }
+
     </style>
 </head>
 
@@ -121,7 +134,7 @@
 
     <div class="box">
         <h2>Teams</h2>
-        <div class="teams-container" style="display:flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+        <div class="teams-container">
             <div>
                 <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
                 <p><strong>Team Hossel-Rocket</strong></p>
