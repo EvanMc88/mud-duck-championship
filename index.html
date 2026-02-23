@@ -74,58 +74,66 @@
             background-color: #2e6230;
         }
 
-        /* Team section with background */
+        /* Team section split background */
         .teams-box {
-            background-color: rgba(255,255,255,0.85); /* slightly transparent white */
-            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            height: 320px; /* enough space for logos and VS */
+        }
+
+        .team-half {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            padding: 20px;
+            color: white;
         }
 
-        .team-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
+        .team-half.hossel {
+            background-color: #d35400; /* burnt orange */
         }
 
-        .team {
-            margin: 0 20px;
-            text-align: center;
+        .team-half.snafu {
+            background-color: #4682b4; /* steel blue */
         }
 
         .team-logo {
-            width: 200px; /* standard size */
-            max-width: 45%;
+            width: 200px;
             height: auto;
             margin-bottom: 10px;
+        }
+
+        .vs-container {
+            position: relative;
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .vs-logo {
             width: 80px;
             height: auto;
-            margin: 0 20px;
         }
 
-        footer {
-            margin: 60px 0;
-            color: #555;
-            font-size: 14px;
-        }
-
+        /* Responsive adjustments */
         @media(max-width: 800px){
-            .team-logo {
-                max-width: 70%;
-                margin-bottom: 15px;
-            }
-            .vs-logo {
-                margin: 15px 0;
-            }
-            .team-container {
+            .teams-box {
                 flex-direction: column;
+                height: auto;
+            }
+            .team-half {
+                width: 100%;
+                padding: 20px 0;
+            }
+            .vs-container {
+                margin: 20px 0;
             }
         }
 
@@ -154,19 +162,20 @@
         </p>
     </div>
 
-    <!-- Teams Section with VS logo -->
-    <div class="box teams-box">
-        <h2>Teams</h2>
-        <div class="team-container">
-            <div class="team">
-                <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
-                <p><strong>Team Hossel-Rocket</strong></p>
-            </div>
-            <img src="vslogo.jpg" alt="VS" class="vs-logo">
-            <div class="team">
-                <img src="snafulogo.jpg" alt="Team Sna-Fu Logo" class="team-logo">
-                <p><strong>Team Sna-Fu</strong></p>
-            </div>
+    <!-- Teams Section with split background and VS logo -->
+    <div class="teams-box">
+        <div class="team-half hossel">
+            <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
+            <p><strong>Team Hossel-Rocket</strong></p>
+        </div>
+
+        <div class="vs-container">
+            <img src="vslogo.jpg" alt="VS Logo" class="vs-logo">
+        </div>
+
+        <div class="team-half snafu">
+            <img src="snafulogo.jpg" alt="Team Sna-Fu Logo" class="team-logo">
+            <p><strong>Team Sna-Fu</strong></p>
         </div>
     </div>
 
