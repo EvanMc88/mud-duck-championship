@@ -10,6 +10,7 @@ body {
     background-color: #e2f0d9;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
@@ -24,22 +25,11 @@ header {
     max-width: 90%;
 }
 
-h1 {
-    margin: 10px 0;
-    font-size: 42px;
-}
-
-.tagline {
-    font-style: italic;
-    font-size: 18px;
-}
+h1 { margin: 10px 0; font-size: 42px; }
+.tagline { font-style: italic; font-size: 18px; }
 
 /* Tabs */
-.tab {
-    overflow: hidden;
-    background-color: #3e8e41;
-}
-
+.tab { overflow: hidden; background-color: #3e8e41; }
 .tab button {
     background-color: inherit;
     border: none;
@@ -50,26 +40,11 @@ h1 {
     color: white;
     transition: 0.3s;
 }
+.tab button:hover { background-color: #2e6230; }
+.tab button.active { background-color: #2b5d34; }
 
-.tab button:hover {
-    background-color: #2e6230;
-}
-
-.tab button.active {
-    background-color: #2b5d34;
-}
-
-.tabcontent {
-    display: none;
-    padding: 30px 20px;
-}
-
-.container {
-    width: 85%;
-    max-width: 1100px;
-    margin: 40px auto;
-}
-
+.tabcontent { display: none; padding: 30px 20px; }
+.container { width: 85%; max-width: 1100px; margin: 40px auto; }
 .box {
     background: white;
     padding: 35px;
@@ -78,8 +53,6 @@ h1 {
     box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
     border: 2px solid #d1e0c0;
 }
-
-/* Buttons */
 .photo-button {
     display: inline-block;
     padding: 12px 20px;
@@ -91,72 +64,25 @@ h1 {
     font-weight: bold;
     transition: 0.3s;
 }
-
-.photo-button:hover {
-    background-color: #2e6230;
-}
+.photo-button:hover { background-color: #2e6230; }
 
 /* Teams */
-.teams-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.team-half {
-    flex: 1;
-    text-align: center;
-    padding: 40px 10px;
-}
-
-.team-half.hossel {
-    background-color: #d35400;
-}
-
-.team-half.snafu {
-    background-color: #4682b4;
-}
-
-.team-logo {
-    width: 200px;
-}
-
-.vs-container {
-    padding: 0 20px;
-}
-
-.vs-logo {
-    width: 140px;
-}
+.teams-box { display: flex; justify-content: center; align-items: center; margin-bottom: 30px; border-radius: 12px; overflow: hidden; }
+.team-half { flex: 1; text-align: center; padding: 40px 10px; }
+.team-half.hossel { background-color: #d35400; }
+.team-half.snafu { background-color: #4682b4; }
+.team-logo { width: 200px; }
+.vs-container { padding: 0 20px; }
+.vs-logo { width: 140px; }
 
 /* Winners */
-.winners-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
+.winners-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.winners-table th, .winners-table td { padding: 12px; border-bottom: 1px solid #ccc; text-align: left; }
+.winners-table th { background-color: #f4f4f4; }
 
-.winners-table th,
-.winners-table td {
-    padding: 12px;
-    border-bottom: 1px solid #ccc;
-    text-align: left;
-}
+footer { text-align: center; padding: 20px; font-style: italic; }
 
-.winners-table th {
-    background-color: #f4f4f4;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    font-style: italic;
-}
-
-/* HOME Tab Background with photo behind box */
+/* HOME Tab Background */
 #Home {
     display: block;
     padding: 50px 20px;
@@ -165,29 +91,24 @@ footer {
     background-position: center;
     background-repeat: no-repeat;
 }
+#Home .box { background-color: rgba(255,255,255,0.85); padding:35px; border-radius:12px; box-shadow:0px 6px 15px rgba(0,0,0,0.12); border:2px solid #d1e0c0; color:#333; }
 
-/* Keep the Home box readable */
-#Home .box {
-    background-color: rgba(255, 255, 255, 0.85); /* slightly transparent white */
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
-    border: 2px solid #d1e0c0;
-    color: #333;  /* text dark for readability */
-    text-shadow: none;
-}
+/* Mud splatter, bubbles, random icons */
+.mud { position:absolute; width:60px; height:60px; background:url('mud-splat.png') no-repeat center/contain; opacity:0.7; pointer-events:none; animation:fadeOut 4s forwards; }
+.bubble { position:absolute; width:15px; height:15px; background:rgba(255,215,0,0.7); border-radius:50%; animation:rise 3s forwards; pointer-events:none; }
+.icon { position:absolute; width:40px; height:40px; pointer-events:none; animation:fadeOut 2s forwards; }
+.quote { position:absolute; font-size:16px; font-weight:bold; color:#fff; text-shadow: 1px 1px 3px #000; animation:fadeOut 4s forwards; }
+
+@keyframes fadeOut { 0% {opacity:1;} 100% {opacity:0; transform:scale(1.5);} }
+@keyframes rise { 0% {bottom:0; opacity:0;} 50% {opacity:0.8;} 100% {bottom:90%; opacity:0;} }
 </style>
 </head>
-
 <body>
 
 <script>
 const PASSWORD = "MudDuck2026";
 let input = prompt("Enter the Mud Duck Championship access code:");
-if (input !== PASSWORD) {
-    document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Access Denied 🦆</h1>";
-    throw "Access denied";
-}
+if (input !== PASSWORD) { document.body.innerHTML = "<h1 style='text-align:center;margin-top:50px;'>Access Denied 🦆</h1>"; throw "Access denied"; }
 </script>
 
 <header>
@@ -213,11 +134,7 @@ if (input !== PASSWORD) {
 <div id="Home" class="tabcontent" style="display:block;">
 <div class="box">
 <h2>The Event</h2>
-<p>
-The Mud Duck Championship is a legendary fall weekend where 28 Ducks battle over 36 holes.
-There will be mud. There will be drinks. There will be stories that grow taller every year.
-Prestige optional. Traditions mandatory.
-</p>
+<p>The Mud Duck Championship is a legendary fall weekend where 28 Ducks battle over 36 holes. Mud, drinks, and chaos are mandatory. Stories get taller every year; glory is optional.</p>
 </div>
 </div>
 
@@ -225,10 +142,7 @@ Prestige optional. Traditions mandatory.
 <div id="About" class="tabcontent">
 <div class="box">
 <h2>About The Championship</h2>
-<p>
-Established in 2020, The Mud Duck Championship brings together competitors for team glory,
-individual recognition, and questionable decision-making.
-</p>
+<p>Established in 2020, The Mud Duck Championship brings together competitors for team glory, individual recognition, and questionable decision-making. Ducks and beers collide in perfect chaos!</p>
 </div>
 </div>
 
@@ -244,29 +158,24 @@ individual recognition, and questionable decision-making.
 <div id="Teams" class="tabcontent">
 <div class="box">
 <h2>Hossel Rockets vs Sna-Fus</h2>
-
 <div class="teams-box">
 <div class="team-half hossel">
 <img src="hossellogo-new.png" class="team-logo">
 <h3>Hossel Rockets</h3>
 </div>
-
 <div class="vs-container">
 <img src="vs-new.png" class="vs-logo">
 </div>
-
 <div class="team-half snafu">
 <img src="snafulogo-new.png" class="team-logo">
 <h3>Sna-Fus</h3>
 </div>
 </div>
-
 </div>
 </div>
 
 <!-- PAST WINNERS -->
 <div id="PastWinners" class="tabcontent">
-
 <div class="box">
 <h2>🏆 Mud Duck Team Championship</h2>
 <table class="winners-table">
@@ -279,7 +188,6 @@ individual recognition, and questionable decision-making.
 <tr><td>2020</td><td>Draw</td></tr>
 </table>
 </div>
-
 <div class="box">
 <h2>🍺🦆 Muddiest Duck</h2>
 <table class="winners-table">
@@ -292,7 +200,6 @@ individual recognition, and questionable decision-making.
 <tr><td>2020</td><td>🍺🦆 Josh Fleck</td></tr>
 </table>
 </div>
-
 </div>
 
 <!-- SCORING -->
@@ -307,31 +214,9 @@ individual recognition, and questionable decision-making.
 <div id="Photos" class="tabcontent">
 <div class="box">
 <h2>📸 Mud Duck Photo Vault</h2>
-
-<p>
-This is the official Mud Duck Championship archive.
-Every Duck is encouraged to contribute photos and videos —
-on the course, at the house, trophies, chaos, all of it.
-</p>
-
-<a href="https://photos.app.goo.gl/be6N5X4Zs6xGymZ56"
-   target="_blank"
-   class="photo-button">
-   👀 View All Photos
-</a>
-
-<a href="https://photos.google.com/share/AF1QipO3K-zsny_5Wg6Z6NCJzUk0tejmTliFV6zRRKF5TKNsMk4VTXlsGJ6Hh07n5DNs7Q?key=Nm5EX1RtbTBhS1c4THFFdVNZWmVwd3owcHdrMHJ3"
-   target="_blank"
-   class="photo-button">
-   📤 Upload Photos
-</a>
-
-<p style="margin-top:25px; font-size:15px; color:#555;">
-Please respect the privacy of the group and the Ducks in it.
-We’re not hiding political secrets — just muddy golf degeneracy.
-Keep the album within the Mud Duck family.
-</p>
-
+<p>This is the official Mud Duck Championship archive. Share photos of the course, chaos, and glory, and remember to respect the privacy of the Ducks.</p>
+<a href="https://photos.app.goo.gl/be6N5X4Zs6xGymZ56" target="_blank" class="photo-button">👀 View All Photos</a>
+<a href="https://photos.google.com/share/AF1QipO3K-zsny_5Wg6Z6NCJzUk0tejmTliFV6zRRKF5TKNsMk4VTXlsGJ6Hh07n5DNs7Q?key=Nm5EX1RtbTBhS1c4THFFdVNZWmVwd3owcHdrMHJ3" target="_blank" class="photo-button">📤 Upload Photos</a>
 </div>
 </div>
 
@@ -339,30 +224,58 @@ Keep the album within the Mud Duck family.
 <div id="Sponsors" class="tabcontent">
 <div class="box">
 <h2>Sponsors</h2>
-<p>Sponsor logos and acknowledgements go here.</p>
+<p>Big thanks to all the sponsors making Mud Duck madness possible! Your support fuels the beers, the mud, and the tales that get taller every year.</p>
 </div>
 </div>
 
 </div>
 
-<footer>
-The Mud Duck Championship • Established 2020
-</footer>
+<footer>The Mud Duck Championship • Established 2020</footer>
 
 <script>
 function openTab(evt, tabName) {
 var i, tabcontent, tablinks;
 tabcontent = document.getElementsByClassName("tabcontent");
-for (i = 0; i < tabcontent.length; i++) {
-tabcontent[i].style.display = "none";
-}
+for (i=0;i<tabcontent.length;i++){tabcontent[i].style.display="none";}
 tablinks = document.getElementsByClassName("tablinks");
-for (i = 0; i < tablinks.length; i++) {
-tablinks[i].className = tablinks[i].className.replace(" active", "");
+for (i=0;i<tablinks.length;i++){tablinks[i].className=tablinks[i].className.replace(" active","");}
+document.getElementById(tabName).style.display="block";
+evt.currentTarget.className+=" active";
 }
-document.getElementById(tabName).style.display = "block";
-evt.currentTarget.className += " active";
-}
+
+// Easter egg: Mud, bubbles, random icons and quotes
+function randomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min);}
+const icons = ['duck.png','beer.png','golf.png'];
+const quotes = ["Mud is mandatory!","Drink. Swing. Repeat.","May the mud be ever in your favor.","Winner gets glory, loser gets mud."];
+setInterval(()=>{
+  const mud=document.createElement('div'); mud.className='mud';
+  mud.style.left=randomInt(0,window.innerWidth-60)+'px';
+  mud.style.top=randomInt(0,window.innerHeight-60)+'px';
+  document.body.appendChild(mud);
+  setTimeout(()=>mud.remove(),4000);
+},4000);
+setInterval(()=>{
+  const bubble=document.createElement('div'); bubble.className='bubble';
+  bubble.style.left=randomInt(0,window.innerWidth-15)+'px';
+  document.body.appendChild(bubble);
+  setTimeout(()=>bubble.remove(),3000);
+},2000);
+setInterval(()=>{
+  const icon=document.createElement('div'); icon.className='icon';
+  icon.style.background=`url('${icons[randomInt(0,icons.length-1)]}') no-repeat center/contain`;
+  icon.style.left=randomInt(0,window.innerWidth-40)+'px';
+  icon.style.top=randomInt(0,window.innerHeight-40)+'px';
+  document.body.appendChild(icon);
+  setTimeout(()=>icon.remove(),2000);
+},5000);
+setInterval(()=>{
+  const q=document.createElement('div'); q.className='quote';
+  q.innerText=quotes[randomInt(0,quotes.length-1)];
+  q.style.left=randomInt(0,window.innerWidth-250)+'px';
+  q.style.top=randomInt(0,window.innerHeight-30)+'px';
+  document.body.appendChild(q);
+  setTimeout(()=>q.remove(),4000);
+},6000);
 </script>
 
 </body>
