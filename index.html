@@ -119,6 +119,39 @@
             height: auto;
         }
 
+        /* Registration Form */
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form input, form select, form button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #3e8e41;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background-color: #2e6230;
+        }
+
         @media(max-width: 800px){
             .teams-box {
                 flex-direction: column;
@@ -170,23 +203,37 @@
         </div>
     </div>
 
-    <div class="box">
-        <h2>📅 Tournament Information</h2>
-        <p><strong>Format:</strong> Team Match Play</p>
-        <p><strong>Holes:</strong> 36</p>
-        <p><strong>Players:</strong> 28</p>
-        <p><strong>Location & Dates:</strong> TBD</p>
-    </div>
-
+    <!-- Registration Section -->
     <div class="box">
         <h2>📝 Player Registration</h2>
         <p>All competitors must complete registration including shirt size.</p>
 
-        <a class="button"
-           href="https://docs.google.com/forms/d/e/1FAIpQLSd0lPobGVMwIVomnntmy5kRR5OstXkB6cF6cnDcrJ_uOYhOrA/viewform?usp=header"
-           target="_blank">
-           Register for the Championship
-        </a>
+        <form action="https://formspree.io/f/mnjboopl" method="POST">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="team">Team:</label>
+            <select id="team" name="team" required>
+                <option value="">Select your team</option>
+                <option value="Hossel-Rocket">Team Hossel-Rocket</option>
+                <option value="Sna-Fu">Team Sna-Fu</option>
+            </select>
+
+            <label for="shirt">Shirt Size:</label>
+            <select id="shirt" name="shirt" required>
+                <option value="">Select size</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
     </div>
 
     <div class="box">
