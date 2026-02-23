@@ -7,14 +7,14 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #f0f2f5;
+            background-color: #e2f0d9; /* light green background */
             margin: 0;
             padding: 0;
             text-align: center;
         }
 
         header {
-            background-color: #1c2a39;
+            background-color: #2b5d34; /* darker green */
             color: white;
             padding: 30px 10px;
         }
@@ -52,13 +52,14 @@
             margin-bottom: 25px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+            border: 2px solid #d1e0c0; /* subtle green border */
         }
 
         a.button {
             display: inline-block;
             margin-top: 15px;
             padding: 12px 22px;
-            background-color: #2e7d32;
+            background-color: #3e8e41; /* team green */
             color: white;
             text-decoration: none;
             border-radius: 6px;
@@ -66,13 +67,30 @@
         }
 
         a.button:hover {
-            background-color: #256428;
+            background-color: #2e6230;
+        }
+
+        .team-logo {
+            width: 150px;
+            max-width: 40%;
+            margin-bottom: 10px;
         }
 
         footer {
             margin: 40px 0;
-            color: #777;
+            color: #555;
             font-size: 14px;
+        }
+
+        /* Responsive layout for team logos */
+        @media(max-width: 600px){
+            .team-logo {
+                max-width: 60%;
+                margin: 10px auto;
+            }
+            .teams-container {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -97,6 +115,20 @@
             A 36-hole Ryder Cup–style battle built on competition, camaraderie,
             and highly questionable on-course decisions.
         </p>
+    </div>
+
+    <div class="box">
+        <h2>Teams</h2>
+        <div class="teams-container" style="display:flex; justify-content: space-around; align-items: center; flex-wrap: wrap;">
+            <div>
+                <img src="hossellogo.jpg" alt="Team Hossel-Rocket Logo" class="team-logo">
+                <p><strong>Team Hossel-Rocket</strong></p>
+            </div>
+            <div>
+                <img src="snufulogo.jpg" alt="Team Sna-Fu Logo" class="team-logo">
+                <p><strong>Team Sna-Fu</strong></p>
+            </div>
+        </div>
     </div>
 
     <div class="box">
