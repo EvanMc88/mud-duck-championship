@@ -10,6 +10,8 @@
             background-color: #e2f0d9;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+            position: relative;
         }
 
         header {
@@ -17,6 +19,8 @@
             color: white;
             padding: 30px 10px;
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
 
         .logo {
@@ -65,6 +69,8 @@
         .tabcontent {
             display: none;
             padding: 30px 20px;
+            position: relative;
+            z-index: 10;
         }
 
         .container {
@@ -80,6 +86,8 @@
             border-radius: 12px;
             box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
             border: 2px solid #d1e0c0;
+            position: relative;
+            z-index: 10;
         }
 
         /* Teams section */
@@ -199,13 +207,76 @@
         .sponsor-logo img:hover {
             transform: scale(1.08);
         }
+
+        /* Easter eggs */
+        #mud-splatter {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('mud-splatter.png') center/cover no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #beer-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 210, 0, 0.4);
+            pointer-events: none;
+            opacity: 0;
+            z-index: 5;
+            animation: none;
+        }
+
+        @keyframes beerPour {
+            0% {opacity:0;}
+            10% {opacity:1;}
+            90% {opacity:1;}
+            100% {opacity:0;}
+        }
+
+        #quote-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(50,50,50,0.85);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 16px;
+            display: none;
+            z-index: 10;
+        }
+
+        /* Floating duck */
+        .duck {
+            position: fixed;
+            width: 60px;
+            height: auto;
+            top: 80%;
+            left: -80px;
+            z-index: 9;
+            pointer-events: none;
+            animation: floatDuck linear infinite;
+        }
+
+        @keyframes floatDuck {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(120vw);}
+        }
     </style>
 </head>
 
 <body>
 
 <script>
-  // Simple password protection
+  // Password protection
   const PASSWORD = "MudDuck2026";
   let attempts = 0;
   let accessGranted = false;
@@ -226,13 +297,16 @@
   }
 </script>
 
+<div id="mud-splatter"></div>
+<div id="beer-overlay"></div>
+<img src="duck.png" class="duck" id="duck1">
+
 <header>
     <img src="logo.jpg" alt="Mud Duck Championship Logo" class="logo">
     <h1>The Mud Duck Championship</h1>
     <div class="tagline">28 Ducks • 36 Holes • Chaos & Drinks</div>
 </header>
 
-<!-- Tabs -->
 <div class="tab">
   <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
   <button class="tablinks" onclick="openTab(event, 'About')">About</button>
@@ -250,12 +324,8 @@
         <div class="box">
             <h2>The Event</h2>
             <p>
-                The Mud Duck Championship is a legendary weekend where <strong>28 ducks</strong> waddle their way across 36 holes in a semi-chaotic Ryder Cup–style showdown.  
-                Expect <strong>drinks in hand, wild shots, and questionable golf strategies</strong> — because nobody remembers par when you’re a duck.
-            </p>
-            <p>
-                Teams <strong>Hossel-Rocket</strong> and <strong>Sna-Fu</strong> face off in a battle of bragging rights, laughter, and muddy shoes.  
-                Come for the competition, stay for the camaraderie — and maybe a few quacks along the way.
+                The Mud Duck Championship is a legendary weekend where <strong>28 ducks</strong> waddle across 36 holes in a semi-chaotic Ryder Cup–style showdown.  
+                Expect <strong>drinks, mud, and laughter</strong> — nobody remembers par when you’re a duck.
             </p>
         </div>
 
@@ -278,8 +348,7 @@
         <div class="box">
             <h2>📝 Player Registration (Coming Soon)</h2>
             <p>Registration will open once the full page is ready. Stay tuned, ducks!</p>
-
-            <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
+            <form id="registration-form">
                 <label for="name">Full Name:</label>
                 <input type="text" id="name" name="name" placeholder="Coming soon" disabled>
 
@@ -289,11 +358,6 @@
                 <label for="shirt">Shirt Size:</label>
                 <select id="shirt" name="shirt" disabled>
                     <option value="">Select size</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
                 </select>
 
                 <button type="submit" disabled>Register (Coming Soon)</button>
@@ -306,11 +370,11 @@
         <div class="box">
             <h2>About The Event</h2>
             <p>
-                What started years ago as a humble gathering of a single 4-some has evolved into a full-blown weekend of golf, drinks, and duck-related shenanigans.  
-                Over the last six years, the Mud Duck Championship has become the fall highlight for friends who love competition, camaraderie, and the occasional muddy shoe.
+                What started years ago as a humble 4-some has evolved into a weekend of golf, drinks, and duck-related shenanigans.  
+                Over six years, the Mud Duck Championship has become the fall highlight for friends who love competition and camaraderie.
             </p>
             <p>
-                Each year, the victorious team takes home the coveted <strong>Mud Duck Trophy</strong>, while the spirit of chaos is celebrated by awarding the infamous <strong>Muddiest Duck Trophy</strong> to the player who embodies everything this weekend stands for: poor shots, great stories, and an unparalleled ability to embrace the mud, the laughter, and maybe a drink or two.
+                Each year, the victorious team takes home the <strong>Mud Duck Trophy</strong>, while the spirit of chaos is celebrated with the infamous <strong>Muddiest Duck Trophy</strong> for the duck who embodies the mud, the laughter, and maybe a drink or two.
             </p>
         </div>
     </div>
@@ -338,9 +402,7 @@
     <div id="RegisteredPlayers" class="tabcontent">
         <div class="box">
             <h2>📝 Registered Players</h2>
-            <p>All ducks who have signed up for the Mud Duck Championship will appear here:</p>
-            <ul id="players-list" style="list-style-type: disc; padding-left: 20px;">
-                <!-- Add any existing players here manually -->
+            <ul id="players-list">
                 <li>Evan McFarlane</li>
                 <li>Kyle Smith</li>
             </ul>
@@ -351,8 +413,7 @@
     <div id="Scoring" class="tabcontent">
         <div class="box">
             <h2>📊 Scoring & Results</h2>
-            <p>Match results and standings will be updated during the weekend.</p>
-            <p>(Leaderboard coming soon.)</p>
+            <p>Match results and standings will be updated during the weekend. (Leaderboard coming soon.)</p>
         </div>
     </div>
 
@@ -369,46 +430,57 @@
         <div class="box">
             <h2>👏 Our Legendary Sponsors</h2>
             <p>
-                A huge, muddy, slightly tipsy quack of thanks goes out to all the sponsors who help make the Mud Duck Championship happen.  
-                Without your support, this event would just be 28 ducks wandering aimlessly around a golf course looking for their ball (and sometimes a drink).
+                A huge quack of thanks goes out to all the sponsors who make the Mud Duck Championship happen.  
+                Without you, this would just be 28 ducks wandering aimlessly around a golf course.
             </p>
-            <p>
-                From providing trophies for the victorious and the “Muddiest Duck,” to keeping our flasks full and our stories wilder, our sponsors are the unsung heroes of chaos.  
-                Thanks for believing in ducks, drinks, and the art of friendly competition!
-            </p>
-
-            <!-- Sponsor Logos Grid -->
             <div class="sponsor-grid">
-                <!-- Example logos (replace with real sponsors) -->
                 <div class="sponsor-logo"><img src="sponsor1.png" alt="Sponsor 1"></div>
                 <div class="sponsor-logo"><img src="sponsor2.png" alt="Sponsor 2"></div>
                 <div class="sponsor-logo"><img src="sponsor3.png" alt="Sponsor 3"></div>
-                <div class="sponsor-logo"><img src="sponsor4.png" alt="Sponsor 4"></div>
             </div>
-
         </div>
     </div>
 
 </div>
+
+<div id="quote-toast"></div>
 
 <footer>
     Prestige Optional • Traditions Mandatory
 </footer>
 
 <script>
-    // Tabs script
+    // Tabs & Easter eggs
+    const quotes = [
+        "Remember: the mud is part of the score!",
+        "Winner drinks, loser ducks.",
+        "If you can't find your ball, it's probably in a beer.",
+        "Mud makes everything more fun!"
+    ];
+
+    function showQuote() {
+        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        const toast = document.getElementById("quote-toast");
+        toast.textContent = quote;
+        toast.style.display = "block";
+        setTimeout(()=>{toast.style.display="none";}, 3000);
+    }
+
     function openTab(evt, tabName) {
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for(i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablinks");
-      for(i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active","");
-      }
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.className += " active";
+        const tabcontent = document.getElementsByClassName("tabcontent");
+        for(let i=0;i<tabcontent.length;i++) tabcontent[i].style.display="none";
+
+        const tablinks = document.getElementsByClassName("tablinks");
+        for(let i=0;i<tablinks.length;i++) tablinks[i].className = tablinks[i].className.replace(" active","");
+
+        document.getElementById(tabName).style.display="block";
+        evt.currentTarget.className += " active";
+
+        // Easter eggs
+        showQuote();
+        const beer = document.getElementById("beer-overlay");
+        beer.style.animation = "beerPour 1.5s forwards";
+        setTimeout(()=>{beer.style.animation="";},1500);
     }
 </script>
 
