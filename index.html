@@ -79,7 +79,24 @@ h1 {
     border: 2px solid #d1e0c0;
 }
 
-/* Teams */
+/* Buttons */
+.photo-button {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 15px 0;
+    background-color: #3e8e41;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.photo-button:hover {
+    background-color: #2e6230;
+}
+
+/* Teams Section */
 .teams-box {
     display: flex;
     justify-content: center;
@@ -104,7 +121,7 @@ h1 {
 }
 
 .team-logo {
-    width: 250px;
+    width: 200px;
 }
 
 .vs-container {
@@ -112,33 +129,10 @@ h1 {
 }
 
 .vs-logo {
-    width: 180px;
+    width: 140px;
 }
 
-/* Registered Players */
-#players-list li {
-    margin-bottom: 6px;
-}
-
-/* Sponsors */
-.sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.sponsor-logo img {
-    width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.sponsor-logo img:hover {
-    transform: scale(1.08);
-}
-
-/* Past Winners Table */
+/* Winners Table */
 .winners-table {
     width: 100%;
     border-collapse: collapse;
@@ -160,12 +154,6 @@ footer {
     text-align: center;
     padding: 20px;
     font-style: italic;
-}
-
-@media(max-width:800px){
-    .teams-box {
-        flex-direction: column;
-    }
 }
 </style>
 </head>
@@ -189,13 +177,9 @@ if (input !== PASSWORD) {
 
 <div class="tab">
 <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
-<button class="tablinks" onclick="openTab(event, 'About')">About</button>
 <button class="tablinks" onclick="openTab(event, 'Teams')">Teams</button>
-<button class="tablinks" onclick="openTab(event, 'RegisteredPlayers')">Registered Players</button>
 <button class="tablinks" onclick="openTab(event, 'PastWinners')">Past Winners</button>
-<button class="tablinks" onclick="openTab(event, 'Scoring')">Scoring</button>
 <button class="tablinks" onclick="openTab(event, 'Photos')">Photos</button>
-<button class="tablinks" onclick="openTab(event, 'Sponsors')">Sponsors</button>
 </div>
 
 <div class="container">
@@ -205,117 +189,94 @@ if (input !== PASSWORD) {
 <div class="box">
 <h2>The Event</h2>
 <p>
-The Mud Duck Championship is a legendary fall weekend where 28 ducks battle over 36 holes in a Ryder Cup-style showdown.
-There will be mud. There will be drinks. There will be stories that get slightly more exaggerated each year.
-</p>
-</div>
-</div>
-
-<!-- ABOUT -->
-<div id="About" class="tabcontent">
-<div class="box">
-<h2>About The Event</h2>
-<p>
-What began as a single four-some of golfers has evolved into a full-blown 28-duck migration.
-For the past six years especially, it has become our annual excuse to reunite, compete, and possibly lose a golf cart key.
-</p>
-<p>
-The winning team claims the prestigious Mud Duck Team Championship trophy 🏆,
-while the individual who best embodies chaos, camaraderie, and questionable decisions
-earns the legendary Muddiest Duck award 🍺🦆.
+The Mud Duck Championship is a legendary fall weekend where 28 Ducks battle over 36 holes.
+There will be mud. There will be drinks. There will be stories that grow taller every year.
+Prestige optional. Traditions mandatory.
 </p>
 </div>
 </div>
 
 <!-- TEAMS -->
 <div id="Teams" class="tabcontent">
+<div class="box">
+
+<h2>Hossel Rockets vs Sna-Fus</h2>
+
 <div class="teams-box">
 <div class="team-half hossel">
-<img src="hossellogo-new.png" class="team-logo">
-<p><strong>Team Hossel-Rocket</strong></p>
+<img src="hossel.jpg" alt="Hossel Rockets" class="team-logo">
+<h3>Hossel Rockets</h3>
 </div>
 
 <div class="vs-container">
-<img src="vs-new.png" class="vs-logo">
+<img src="vs.jpg" alt="VS" class="vs-logo">
 </div>
 
 <div class="team-half snafu">
-<img src="snafulogo-new.png" class="team-logo">
-<p><strong>Team Sna-Fu</strong></p>
-</div>
+<img src="snafu.jpg" alt="Sna-Fus" class="team-logo">
+<h3>Sna-Fus</h3>
 </div>
 </div>
 
-<!-- REGISTERED PLAYERS -->
-<div id="RegisteredPlayers" class="tabcontent">
-<div class="box">
-<h2>📝 Registered Players</h2>
-<ul id="players-list">
-<li>Evan McFarlane</li>
-</ul>
 </div>
 </div>
 
 <!-- PAST WINNERS -->
 <div id="PastWinners" class="tabcontent">
-<div class="box">
-<h2>🏆 Past Champions & Muddiest Ducks</h2>
 
-<h3>Mud Duck Team Championship 🏆</h3>
+<div class="box">
+<h2>🏆 Mud Duck Team Championship</h2>
+
 <table class="winners-table">
 <tr><th>Year</th><th>Champion</th></tr>
-<tr><td>2025</td><td>Sna-Fus 🏆</td></tr>
-<tr><td>2024</td><td>Hossel-Rockets 🏆 (Through Retainment)</td></tr>
-<tr><td>2023</td><td>Hossel-Rockets 🏆</td></tr>
-<tr><td>2022</td><td>Hossel-Rockets 🏆</td></tr>
-<tr><td>2021</td><td>Hossel-Rockets 🏆</td></tr>
-<tr><td>2020</td><td>Draw 🤝</td></tr>
+<tr><td>2025</td><td>🏆 Sna-Fus</td></tr>
+<tr><td>2024</td><td>🏆 Hossel-Rockets (Through Retainment)</td></tr>
+<tr><td>2023</td><td>🏆 Hossel-Rockets</td></tr>
+<tr><td>2022</td><td>🏆 Hossel-Rockets</td></tr>
+<tr><td>2021</td><td>🏆 Hossel-Rockets</td></tr>
+<tr><td>2020</td><td>Draw</td></tr>
 </table>
 
-<h3 style="margin-top:40px;">Muddiest Duck 🍺🦆</h3>
+</div>
+
+<div class="box">
+<h2>🍺🦆 Muddiest Duck</h2>
+
 <table class="winners-table">
 <tr><th>Year</th><th>Winner</th></tr>
-<tr><td>2025</td><td>Brandon Pierce 🍺🦆</td></tr>
-<tr><td>2024</td><td>Jordan Morrow 🍺🦆</td></tr>
-<tr><td>2023</td><td>Colin Allaby 🍺🦆</td></tr>
-<tr><td>2022</td><td>Danny Craig 🍺🦆</td></tr>
-<tr><td>2021</td><td>Tom Richards 🍺🦆</td></tr>
-<tr><td>2020</td><td>Josh Fleck 🍺🦆</td></tr>
+<tr><td>2025</td><td>🍺🦆 Brandon Pierce</td></tr>
+<tr><td>2024</td><td>🍺🦆 Jordan Morrow</td></tr>
+<tr><td>2023</td><td>🍺🦆 Colin Allaby</td></tr>
+<tr><td>2022</td><td>🍺🦆 Danny Craig</td></tr>
+<tr><td>2021</td><td>🍺🦆 Tom Richards</td></tr>
+<tr><td>2020</td><td>🍺🦆 Josh Fleck</td></tr>
 </table>
 
-</div>
-</div>
-
-<!-- SCORING -->
-<div id="Scoring" class="tabcontent">
-<div class="box">
-<h2>📊 Scoring & Results</h2>
-<p>Leaderboard will be updated during the event weekend.</p>
 </div>
 </div>
 
 <!-- PHOTOS -->
 <div id="Photos" class="tabcontent">
 <div class="box">
-<h2>📸 Photo Uploads</h2>
-<p>Gallery coming soon.</p>
-</div>
-</div>
+<h2>📸 Mud Duck Photo Vault</h2>
 
-<!-- SPONSORS -->
-<div id="Sponsors" class="tabcontent">
-<div class="box">
-<h2>👏 Sponsors</h2>
 <p>
-Without our sponsors, this would just be 28 ducks wandering around a golf course with no purpose.
-We are incredibly thankful for their support in fueling the chaos.
+This is the official Mud Duck Championship photo archive.
+Every Duck is encouraged to upload pictures and videos from the weekend —
+on the course, at the house, trophies, chaos, all of it.
 </p>
 
-<div class="sponsor-grid">
-<div class="sponsor-logo"><img src="sponsor1.png"></div>
-<div class="sponsor-logo"><img src="sponsor2.png"></div>
-<div class="sponsor-logo"><img src="sponsor3.png"></div>
-</div>
+<a href="PASTE_YOUR_ALBUM_LINK_HERE" 
+   target="_blank" 
+   class="photo-button">
+   📸 View & Add Photos
+</a>
+
+<p style="margin-top:25px; font-size:15px; color:#555;">
+Please respect the privacy of the group and the Ducks in it.
+We’re not hiding political secrets — just muddy golf degeneracy.
+Keep the album within the Mud Duck family.
+</p>
 
 </div>
 </div>
@@ -323,7 +284,7 @@ We are incredibly thankful for their support in fueling the chaos.
 </div>
 
 <footer>
-Prestige Optional • Traditions Mandatory
+The Mud Duck Championship • Established 2020
 </footer>
 
 <script>
