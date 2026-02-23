@@ -121,7 +121,7 @@ h1 {
 }
 
 .team-logo {
-    width: 200px;       /* logos large */
+    width: 200px;
 }
 
 .vs-container {
@@ -129,7 +129,7 @@ h1 {
 }
 
 .vs-logo {
-    width: 140px;       /* vs logo bigger */
+    width: 140px;
 }
 
 /* Winners */
@@ -156,23 +156,25 @@ footer {
     font-style: italic;
 }
 
-/* HOME Tab Background (only behind the box) */
+/* HOME Tab Background with photo behind box */
 #Home {
     display: block;
     padding: 50px 20px;
-}
-
-#Home .box {
     background-image: url('560210562_10172647912910321_4209714797870668673_n.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+/* Keep the Home box readable */
+#Home .box {
+    background-color: rgba(255, 255, 255, 0.85); /* slightly transparent white */
     padding: 35px;
     border-radius: 12px;
     box-shadow: 0px 6px 15px rgba(0,0,0,0.12);
     border: 2px solid #d1e0c0;
-    color: white;          /* text readable on photo */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    color: #333;  /* text dark for readability */
+    text-shadow: none;
 }
 </style>
 </head>
