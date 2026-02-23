@@ -82,22 +82,6 @@
             border: 2px solid #d1e0c0;
         }
 
-        a.button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 16px 28px;
-            background-color: #3e8e41;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        a.button:hover {
-            background-color: #2e6230;
-        }
-
         /* Teams section */
         .teams-box {
             display: flex;
@@ -192,6 +176,11 @@
             }
         }
 
+        /* Registered players list */
+        #players-list li {
+            margin-bottom: 6px;
+        }
+
     </style>
 </head>
 
@@ -208,7 +197,7 @@
   <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
   <button class="tablinks" onclick="openTab(event, 'About')">About</button>
   <button class="tablinks" onclick="openTab(event, 'Teams')">Teams</button>
-  <button class="tablinks" onclick="openTab(event, 'Registration')">Registration</button>
+  <button class="tablinks" onclick="openTab(event, 'RegisteredPlayers')">Registered Players</button>
   <button class="tablinks" onclick="openTab(event, 'Scoring')">Scoring</button>
   <button class="tablinks" onclick="openTab(event, 'Photos')">Photos</button>
 </div>
@@ -322,31 +311,14 @@
         </div>
     </div>
 
-    <!-- Registration Tab -->
-    <div id="Registration" class="tabcontent">
+    <!-- Registered Players Tab -->
+    <div id="RegisteredPlayers" class="tabcontent">
         <div class="box">
-            <h2>📝 Player Registration</h2>
-            <p>All ducks must complete registration including shirt size.</p>
-
-            <form id="registration-form-tab" action="https://formspree.io/f/mnjboopl" method="POST">
-                <label for="name2">Full Name:</label>
-                <input type="text" id="name2" name="name" required>
-
-                <label for="email2">Email:</label>
-                <input type="email" id="email2" name="email" required>
-
-                <label for="shirt2">Shirt Size:</label>
-                <select id="shirt2" name="shirt" required>
-                    <option value="">Select size</option>
-                    <option value="S">S</option>
-                    <option value="M">M</option>
-                    <option value="L">L</option>
-                    <option value="XL">XL</option>
-                    <option value="XXL">XXL</option>
-                </select>
-
-                <button type="submit">Register</button>
-            </form>
+            <h2>📝 Registered Players</h2>
+            <p>All ducks who have signed up for the Mud Duck Championship will appear here:</p>
+            <ul id="players-list" style="list-style-type: disc; padding-left: 20px;">
+                <!-- Names will be added here -->
+            </ul>
         </div>
     </div>
 
@@ -389,17 +361,27 @@ function openTab(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-// Form submission (on-page confirmation)
-const forms = [document.getElementById('registration-form'), document.getElementById('registration-form-tab')];
+// Form submission (add to Registered Players list)
+const forms = [document.getElementById('registration-form')];
 forms.forEach(form => {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
+        const name = formData.get('name');
+
+        // Add name to Registered Players list
+        const ul = document.getElementById('players-list');
+        const li = document.createElement('li');
+        li.textContent = name;
+        ul.appendChild(li);
+
+        // Submit to Formspree
         const response = await fetch(form.action, {
             method: form.method,
             body: formData,
             headers: { 'Accept': 'application/json' }
         });
+
         if (response.ok) {
             alert("Thank you! Your registration has been submitted.");
             form.reset();
