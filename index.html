@@ -82,6 +82,22 @@
             border: 2px solid #d1e0c0;
         }
 
+        a.button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 16px 28px;
+            background-color: #3e8e41;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        a.button:hover {
+            background-color: #2e6230;
+        }
+
         /* Teams section */
         .teams-box {
             display: flex;
@@ -189,7 +205,8 @@
 
 <!-- Tabs -->
 <div class="tab">
-  <button class="tablinks active" onclick="openTab(event, 'About')">About</button>
+  <button class="tablinks active" onclick="openTab(event, 'Home')">Home</button>
+  <button class="tablinks" onclick="openTab(event, 'About')">About</button>
   <button class="tablinks" onclick="openTab(event, 'Teams')">Teams</button>
   <button class="tablinks" onclick="openTab(event, 'Registration')">Registration</button>
   <button class="tablinks" onclick="openTab(event, 'Scoring')">Scoring</button>
@@ -198,8 +215,82 @@
 
 <div class="container">
 
+    <!-- Home Tab -->
+    <div id="Home" class="tabcontent" style="display:block;">
+
+        <!-- Event Summary -->
+        <div class="box">
+            <h2>The Event</h2>
+            <p>
+                The Mud Duck Championship is a legendary weekend where <strong>28 ducks</strong> waddle their way across 36 holes in a semi-chaotic Ryder Cup–style showdown.  
+                Expect <strong>drinks in hand, wild shots, and questionable golf strategies</strong> — because nobody remembers par when you’re a duck.
+            </p>
+            <p>
+                Teams <strong>Hossel-Rocket</strong> and <strong>Sna-Fu</strong> face off in a battle of bragging rights, laughter, and muddy shoes.  
+                Come for the competition, stay for the camaraderie — and maybe a few quacks along the way.
+            </p>
+        </div>
+
+        <!-- Teams Section -->
+        <div class="teams-box">
+            <div class="team-half hossel">
+                <img src="hossellogo-new.png" alt="Team Hossel-Rocket Logo" class="team-logo">
+                <p><strong>Team Hossel-Rocket</strong></p>
+            </div>
+
+            <div class="vs-container">
+                <img src="vs-new.png" alt="VS Logo" class="vs-logo">
+            </div>
+
+            <div class="team-half snafu">
+                <img src="snafulogo-new.png" alt="Team Sna-Fu Logo" class="team-logo">
+                <p><strong>Team Sna-Fu</strong></p>
+            </div>
+        </div>
+
+        <!-- Registration Section -->
+        <div class="box">
+            <h2>📝 Player Registration</h2>
+            <p>All ducks must complete registration including shirt size.</p>
+
+            <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="shirt">Shirt Size:</label>
+                <select id="shirt" name="shirt" required>
+                    <option value="">Select size</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+
+                <button type="submit">Register</button>
+            </form>
+        </div>
+
+        <!-- Scoring -->
+        <div class="box">
+            <h2>📊 Scoring & Results</h2>
+            <p>Match results and standings will be updated during the weekend.</p>
+            <p>(Leaderboard coming soon.)</p>
+        </div>
+
+        <!-- Photos -->
+        <div class="box">
+            <h2>📸 Photo Uploads</h2>
+            <p>A shared upload link will be added so ducks can contribute photos.</p>
+        </div>
+
+    </div>
+
     <!-- About Tab -->
-    <div id="About" class="tabcontent" style="display:block;">
+    <div id="About" class="tabcontent">
         <div class="box">
             <h2>About The Event</h2>
             <p>
@@ -237,15 +328,15 @@
             <h2>📝 Player Registration</h2>
             <p>All ducks must complete registration including shirt size.</p>
 
-            <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
+            <form id="registration-form-tab" action="https://formspree.io/f/mnjboopl" method="POST">
+                <label for="name2">Full Name:</label>
+                <input type="text" id="name2" name="name" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email2">Email:</label>
+                <input type="email" id="email2" name="email" required>
 
-                <label for="shirt">Shirt Size:</label>
-                <select id="shirt" name="shirt" required>
+                <label for="shirt2">Shirt Size:</label>
+                <select id="shirt2" name="shirt" required>
                     <option value="">Select size</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
@@ -282,41 +373,40 @@
     Prestige Optional • Traditions Mandatory
 </footer>
 
-<!-- Tabs Script -->
 <script>
+// Tabs script
 function openTab(evt, tabName) {
   var i, tabcontent, tablinks;
-
   tabcontent = document.getElementsByClassName("tabcontent");
   for(i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-
   tablinks = document.getElementsByClassName("tablinks");
   for(i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active","");
   }
-
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 
-// On-page Form Confirmation
-const form = document.getElementById('registration-form');
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+// Form submission (on-page confirmation)
+const forms = [document.getElementById('registration-form'), document.getElementById('registration-form-tab')];
+forms.forEach(form => {
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            alert("Thank you! Your registration has been submitted.");
+            form.reset();
+        } else {
+            alert("Oops! There was a problem submitting your form.");
+        }
     });
-    if (response.ok) {
-        alert("Thank you! Your registration has been submitted.");
-        form.reset();
-    } else {
-        alert("Oops! There was a problem submitting your form.");
-    }
 });
 </script>
 
