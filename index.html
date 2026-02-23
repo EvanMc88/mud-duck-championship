@@ -208,7 +208,7 @@
         <h2>📝 Player Registration</h2>
         <p>All competitors must complete registration including shirt size.</p>
 
-        <form action="https://formspree.io/f/mnjboopl" method="POST">
+        <form id="registration-form" action="https://formspree.io/f/mnjboopl" method="POST">
             <label for="name">Full Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -256,6 +256,26 @@
 <footer>
     Prestige Optional • Traditions Mandatory
 </footer>
+
+<!-- On-Page Form Confirmation -->
+<script>
+const form = document.getElementById('registration-form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+        alert("Thank you! Your registration has been submitted.");
+        form.reset();
+    } else {
+        alert("Oops! There was a problem submitting your form.");
+    }
+});
+</script>
 
 </body>
 </html>
