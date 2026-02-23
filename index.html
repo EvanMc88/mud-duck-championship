@@ -74,25 +74,24 @@
             background-color: #2e6230;
         }
 
-        /* Team section split background */
+        /* Teams section with background colors */
         .teams-box {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 30px;
             border-radius: 12px;
             overflow: hidden;
-            margin-bottom: 30px;
-            height: 320px; /* enough space for logos and VS */
+            padding: 20px 0;
         }
 
         .team-half {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
-            padding: 20px;
-            color: white;
+            padding: 40px 10px;
         }
 
         .team-half.hossel {
@@ -104,17 +103,16 @@
         }
 
         .team-logo {
-            width: 200px;
+            width: 200px; /* same size as before */
             height: auto;
             margin-bottom: 10px;
         }
 
         .vs-container {
-            position: relative;
-            width: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 0 20px;
         }
 
         .vs-logo {
@@ -122,15 +120,9 @@
             height: auto;
         }
 
-        /* Responsive adjustments */
         @media(max-width: 800px){
             .teams-box {
                 flex-direction: column;
-                height: auto;
-            }
-            .team-half {
-                width: 100%;
-                padding: 20px 0;
             }
             .vs-container {
                 margin: 20px 0;
